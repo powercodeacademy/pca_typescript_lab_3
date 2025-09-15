@@ -8,11 +8,14 @@
 
 // Your code here 👇
 const printValue = (value: string | number | boolean): void => {
-  if (typeof value === "string") {
-    return console.log(`String value: ${value}`)
-  } else if (typeof value === "number") {
-    return console.log(`Number value: ${value}`)
-  } else {
-    return console.log(`Boolean value: ${value}`)
+  switch (typeof value) {
+    case "string":
+      console.log(`String value: ${value}`);
+      break;
+    case "number":
+      console.log(`Number value: ${value}`);
+      break;
+    default:
+      console.log(`Boolean value: ${value}`);
   }
-}
+};
