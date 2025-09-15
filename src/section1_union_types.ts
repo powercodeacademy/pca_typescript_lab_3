@@ -11,3 +11,6 @@
 // toUpperOrFixed(3.14159) ➞ "3.14"
 
 // Your code here 👇
+const input: string | number = "hi"
+
+const toUpperOrFixed = (input: string | number): string => typeof input === "string" ? input.toUpperCase() : String(input.toFixed(2))
