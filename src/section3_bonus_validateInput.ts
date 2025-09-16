@@ -8,3 +8,11 @@
 // Use type narrowing (`typeof`, `in`) to handle each case.
 
 // Your code here 👇
+
+function validateInput(input: string | number | object): boolean {
+  if (typeof input === "string") return input.length > 0;
+  if (typeof input === "number") return input > 0;
+  if (typeof input === "object" && input !== null && "valid" in input)
+    return input.valid === true;
+  return false;
+}
