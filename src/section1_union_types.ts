@@ -11,3 +11,15 @@
 // toUpperOrFixed(3.14159) ➞ "3.14"
 
 // Your code here 👇
+
+let input: string | number
+
+input = 123
+
+function toUpperOrFixed(input: string | number): string {
+  if (typeof input === "string") {
+    return input.toUpperCase()
+  } else {
+    return input.toFixed(2).toString()
+  }
+}
