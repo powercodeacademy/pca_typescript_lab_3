@@ -16,7 +16,15 @@ let input: string | number
 
 input = 123
 
-function toUpperOrFixed(input: string | number): string {
+// function toUpperOrFixed(input: string | number): string {
+//   if (typeof input === "string") {
+//     return input.toUpperCase()
+//   } else {
+//     return input.toFixed(2).toString()
+//   }
+// }
+
+const toUpperOrFixed = (input: string | number): string => {
   if (typeof input === "string") {
     return input.toUpperCase()
   } else {

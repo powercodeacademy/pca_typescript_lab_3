@@ -7,3 +7,5 @@
 // - boolean: print "Boolean value: <value>"
 
 // Your code here 👇
+
+function printValue 
