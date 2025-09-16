@@ -11,3 +11,11 @@
 // toUpperOrFixed(3.14159) ➞ "3.14"
 
 // Your code here 👇
+const input: string | number = 'string'
+
+const toUpperOrFixed = (subject: string | number): string => {
+  if (typeof subject == 'string') {
+    return subject.toUpperCase()
+  }
+  return subject.toFixed(2).toString()
+}
