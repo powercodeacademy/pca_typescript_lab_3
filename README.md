@@ -17,14 +17,14 @@ By the end of this lab, you'll be comfortable with:
 
 ## Getting Started
 
-First, fork and clone the repository and let's set up your environment:
+First, clone this repository to your local machine and install the required dependencies:
 
 ```bash
 npm install
 npm test
 ```
 
-The tests will guide you through each concept. Don't worry if they fail initially—that's how you'll learn what TypeScript expects!
+You should see test output showing which tests are passing and failing. Don't worry if tests are failing initially - that's expected! You'll be implementing the code to make them pass.
 
 ---
 
@@ -47,7 +47,25 @@ userInput = true // ❌ TypeScript error - boolean not allowed
 
 This is incredibly useful for functions that need to handle different input types. Instead of hoping you remember to check the type, TypeScript forces you to handle each case properly.
 
-**Try it yourself:** Open `src/section1_union_types.ts` and create an `input` variable that can be either a string or a number. Then write a `toUpperOrFixed` function that handles both types appropriately.
+### Practice: Union Types
+
+**Your Task**: Open `src/section1_union_types.ts` and complete the following:
+
+1. Create an `input` variable that can be either a string or a number (union type)
+2. Write a `toUpperOrFixed` function that:
+   - Takes a parameter that can be either `string` or `number`
+   - If it's a string: return it converted to uppercase
+   - If it's a number: return it as a string with 2 decimal places
+   - Return type should be `string`
+
+**Expected behavior**:
+
+```typescript
+console.log(toUpperOrFixed("hello")) // "HELLO"
+console.log(toUpperOrFixed(3.14159)) // "3.14"
+```
+
+**Hint**: Use `typeof value === "string"` to check if it's a string, and `typeof value === "number"` to check if it's a number.
 
 ---
 
@@ -85,7 +103,26 @@ function handleInput(input: string | number | boolean) {
 }
 ```
 
-**Your turn:** In `src/section2_type_narrowing.ts`, write a `printValue` function that takes a string, number, or boolean and prints a different message for each type using `typeof` checks.
+### Practice: Type Narrowing
+
+**Your Task**: Open `src/section2_type_narrowing.ts` and write a `printValue` function that:
+
+1. Takes a parameter that can be `string`, `number`, or `boolean`
+2. Uses `typeof` checks to determine the type
+3. Prints a different message for each type:
+   - String: `"String: <value>"`
+   - Number: `"Number: <value>"`
+   - Boolean: `"Boolean: <value>"`
+
+**Expected behavior**:
+
+```typescript
+printValue("hello") // "String: hello"
+printValue(42) // "Number: 42"
+printValue(true) // "Boolean: true"
+```
+
+**Hint**: Use `else if` statements to check each type. The final `else` will catch the boolean case since you've already checked string and number.
 
 ---
 
@@ -125,13 +162,38 @@ function isValidInput(input: string | number | { valid: boolean }) {
 }
 ```
 
-**Challenge:** In `src/section3_bonus_validateInput.ts`, write a `validateInput` function that accepts:
+### Practice: Advanced Type Narrowing (Bonus Challenge)
 
-- A string (must be non-empty)
-- A number (must be greater than 0)
-- An object with a `valid` boolean property
+**Your Task**: Open `src/section3_bonus_validateInput.ts` and write a `validateInput` function that:
 
-Return `true` if the input is valid, otherwise `false`. Use `typeof`, `in`, and other narrowing tools to implement this cleanly.
+1. Accepts a parameter that can be:
+
+   - A string (must be non-empty)
+   - A number (must be greater than 0)
+   - An object with a `valid` boolean property
+
+2. Returns `true` if the input is valid, otherwise `false`
+
+3. Use `typeof`, `in`, and other narrowing tools to implement this cleanly
+
+**Expected behavior**:
+
+```typescript
+console.log(validateInput("hello")) // true
+console.log(validateInput("")) // false
+console.log(validateInput(5)) // true
+console.log(validateInput(-1)) // false
+console.log(validateInput({ valid: true })) // true
+console.log(validateInput({ valid: false })) // false
+```
+
+**Hints**:
+
+- Use `typeof input === "string"` to check for strings
+- Use `typeof input === "number"` to check for numbers
+- Use `typeof input === "object" && input !== null` to check for objects
+- Use `"valid" in input` to check if the object has a `valid` property
+- Remember to check that `input.valid` is `true`
 
 ---
 
@@ -147,10 +209,6 @@ Union types and type narrowing are fundamental to writing robust TypeScript code
 These concepts are especially important when working with APIs, user input, or any situation where data might come in different formats.
 
 ---
-
-## Ready to Start?
-
-Open `src/section1_union_types.ts` and begin! The tests will guide you through each concept. Remember: TypeScript is here to help you write better code by catching errors early. Embrace the red squiggly lines—they're your friends! 🚀
 
 ### Common Troubleshooting
 
